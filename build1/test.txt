@@ -1,0 +1,6 @@
+cmake ./examples -DUSE_SSE2_INSTRUCTIONS=ON
+
+
+
+
+

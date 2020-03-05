@@ -1,0 +1,6 @@
+/root/FaceReconstruction-master/build1/dlib_build/CMakeFiles/dlib.dir
+/root/FaceReconstruction-master/build1/CMakeFiles/face_landmark_detection_ex.dir
+/root/FaceReconstruction-master/build1/CMakeFiles/fit-model.dir
+/root/FaceReconstruction-master/build1/CMakeFiles/scm-to-cereal.dir
+/root/FaceReconstruction-master/build1/CMakeFiles/webcam_face_fit_model_keegan.dir
+/root/FaceReconstruction-master/build1/CMakeFiles/webcam_face_pose_ex.dir

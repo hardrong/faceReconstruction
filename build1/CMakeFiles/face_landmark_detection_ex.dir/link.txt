@@ -1,0 +1,1 @@
+/usr/bin/c++    -Wreturn-type -DDLIB_PNG_SUPPORT -DDLIB_JPEG_SUPPORT -std=c++11 -Wreturn-type -O3 -DNDEBUG    CMakeFiles/face_landmark_detection_ex.dir/face_landmark_detection_ex.cpp.o  -o face_landmark_detection_ex -rdynamic dlib_build/libdlib.a -lpthread -lnsl -lX11 
