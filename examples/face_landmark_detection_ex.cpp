@@ -38,11 +38,11 @@
 */
 
 
-#include </root/FaceReconstruction-master/3rdparty/dlib-18.17/dlib/image_processing/frontal_face_detector.h>
-#include </root/FaceReconstruction-master/3rdparty/dlib-18.17/dlib/image_processing/render_face_detections.h>
-#include </root/FaceReconstruction-master/3rdparty/dlib-18.17/dlib/image_processing.h>
-#include </root/FaceReconstruction-master/3rdparty/dlib-18.17/dlib/gui_widgets.h>
-#include </root/FaceReconstruction-master/3rdparty/dlib-18.17/dlib/image_io.h>
+#include </root/faceReconstruction/3rdparty/dlib-18.17/dlib/image_processing/frontal_face_detector.h>
+#include </root/faceReconstruction/3rdparty/dlib-18.17/dlib/image_processing/render_face_detections.h>
+#include </root/faceReconstruction/3rdparty/dlib-18.17/dlib/image_processing.h>
+#include </root/faceReconstruction/3rdparty/dlib-18.17/dlib/gui_widgets.h>
+#include </root/faceReconstruction/3rdparty/dlib-18.17/dlib/image_io.h>
 #include <iostream>
 #include <fstream>
 #define DLIB_PNG_SUPPORT
