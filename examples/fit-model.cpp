@@ -95,8 +95,10 @@ LandmarkCollection<cv::Vec2f> read_pts_landmarks(std::string filename)
 		// "Please note that the re-annotated data for this challenge are saved in the Matlab convention of 1 being
 		// the first index, i.e. the coordinates of the top left pixel in an image are x=1, y=1."
 		// ==> So we shift every point by 1:
-		landmark.coordinates[0] -= 1.0f;
-		landmark.coordinates[1] -= 1.0f;
+    landmark.coordinates[0] /= 2;
+    landmark.coordinates[0] -= 1.0f;
+	  landmark.coordinates[1] /= 2;
+	  landmark.coordinates[1] -= 1.0f;
 		landmarks.emplace_back(landmark);
 		++ibugId;
 	}
@@ -122,9 +124,11 @@ int main(int argc, char *argv[])
 				"display the help message")
 			("model,m", po::value<fs::path>(&modelfile)->required()->default_value("../share/sfm_shape_3448.bin"),
 				"a Morphable Model stored as cereal BinaryArchive")
-			("image,i", po::value<fs::path>(&imagefile)->required()->default_value("../data/faces/image_0010.png"),
+			("image,i",
+       po::value<fs::path>(&imagefile)->required()->default_value("../data/faces/image_0013.jpg"),
 				"an input image")
-			("landmarks,l", po::value<fs::path>(&landmarksfile)->required()->default_value("../data/faces/image_0010.pts"),
+			("landmarks,l",
+       po::value<fs::path>(&landmarksfile)->required()->default_value("/root/FaceReconstruction-master/build2/my_saple.pts"),
 				"2D landmarks for the image, in ibug .pts format")
 			("mapping,p", po::value<fs::path>(&mappingsfile)->required()->default_value("../share/ibug2did.txt"),
 				"landmark identifier to model vertex number mapping")

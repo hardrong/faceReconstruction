@@ -44,7 +44,7 @@
 #include </root/FaceReconstruction-master/3rdparty/dlib-18.17/dlib/gui_widgets.h>
 #include </root/FaceReconstruction-master/3rdparty/dlib-18.17/dlib/image_io.h>
 #include <iostream>
-
+#include <fstream>
 #define DLIB_PNG_SUPPORT
 #define DLIB_JPEG_SUPPORT
 
@@ -90,11 +90,13 @@ int main(int argc, char** argv)
             load_image(img, argv[i]);
             // Make the image larger so we can detect small faces.
             pyramid_up(img);
+            ofstream fout("my_saple.pts",ios::trunc|ios::out|ios::in);
 
             // Now tell the face detector to give us a list of bounding boxes
             // around all the faces in the image.
             std::vector<rectangle> dets = detector(img);
             cout << "Number of faces detected: " << dets.size() << endl;
+            fout << "Number of faces detected: " << dets.size() << endl;
 
             // Now we will go ask the shape_predictor to tell us the pose of
             // each face we detected.
@@ -104,7 +106,9 @@ int main(int argc, char** argv)
                 full_object_detection shape = sp(img, dets[j]);
                 cout << "number of parts: "<< shape.num_parts() << endl;
                 cout << "pixel position of first part:  " << shape.part(0) << endl;
+                fout << "pixel position of first part:  " << shape.part(0) << endl;
                 cout << "pixel position of second part: " << shape.part(1) << endl;
+                fout << "pixel position of second part: " << shape.part(1) << endl;
                 // You get the idea, you can get all the face part locations if
                 // you want them.  Here we just store them in shapes so we can
                 // put them on the screen.
@@ -113,11 +117,15 @@ int main(int argc, char** argv)
 		  ////
 		  dlib::point pt_save = shape.part(i);
 		  cout << pt_save.x() << " " << pt_save.y() << endl;
+		  fout << pt_save.x() << " " << pt_save.y() << endl;
+
 		}
 		/////
 		shapes.push_back(shape);
             }
             // Now let's view our face poses on the screen.
+            fout << '}';
+            fout.close();
             win.clear_overlay();
             win.set_image(img);
             win.add_overlay(render_face_detections(shapes));
